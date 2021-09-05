@@ -1,22 +1,24 @@
 import 'package:firebase_database/firebase_database.dart';
 
-class ProductModel {
-  String? productName;
+class PriceModel {
+  // String? productName;
   String? productPrice;
-  String? productImage;
-  String? productDes;
+  // String? productImage;
+  // String? productDes;
 
-  ProductModel(
-    this.productName,
+  PriceModel({
+    // this.productName,
     this.productPrice,
-    this.productImage,
-    this.productDes,
-  );
+    // this.productImage,
+    // this.productDes,
+  });
 
-  ProductModel.fromSnapshot(DataSnapshot snap) {
-    productName = snap.value['name'];
-    productPrice = snap.value['price'];
-    productImage = snap.value['image'];
-    productDes = snap.value['desc'];
+  factory PriceModel.fromRTDB(Map<String, dynamic> data) {
+    return PriceModel(
+      // productName: data['name'] ?? 'null',
+      productPrice: data['price'] ?? '-',
+      // productImage: data['image'] ?? 'https://picsum.photos/200/300?random=1',
+      // productDes: data['desc'] ?? 'null',
+    );
   }
 }
